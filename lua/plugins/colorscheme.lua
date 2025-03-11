@@ -1,4 +1,5 @@
 return {
+    -- gruvbox setup
     {
         "ellisonleao/gruvbox.nvim",
         priority = 1000, -- 确保它在其他插件之前加载
