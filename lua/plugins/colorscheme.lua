@@ -2,7 +2,7 @@ return {
     -- gruvbox setup
     {
         "ellisonleao/gruvbox.nvim",
-        priority = 1000, -- 确保它在其他插件之前加载
+        priority = 100, -- 确保它在其他插件之前加载
         config = function()
             require("gruvbox").setup({
                 terminal_colors = true, -- 添加 Neovim 终端颜色
