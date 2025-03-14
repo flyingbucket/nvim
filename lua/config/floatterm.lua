@@ -1,4 +1,4 @@
-vim.keymap.set("t", "<a-n>", "<c-\\><c-n>")
+vim.keymap.set("t", "<M-n>", "<c-\\><c-n>")
 
 local state = {
     floating = {
@@ -55,4 +55,4 @@ end
 -- Example usage:
 -- Create a floating window with default dimensions
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
-vim.keymap.set({ "n", "i", "t", "v" }, "<c-\\>", vim.cmd.Floaterminal)
+vim.keymap.set({ "n", "i", "t", "v" }, "<M-\\>", vim.cmd.Floaterminal)
