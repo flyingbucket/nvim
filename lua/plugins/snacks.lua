@@ -1,10 +1,18 @@
 return {
     "folke/snacks.nvim",
+    ---@type snacks.Config
     opts = {
         notifier = { enabled = true },
-
         image = { enabled = true },
-        -- show hidden files in snacks.explorer
+
+        ---@class snacks.animate.Config
+        ---@field easing? snacks.animate.easing|snacks.animate.easing.Fn
+        animate = {
+            ---@type snacks.animate.Duration|number
+            duration = { step = 16, total = 200 }, -- ms per step
+            easing = "liner",
+            fps = 120, -- frames per second. Global setting for all animations
+        },
         picker = {
             sources = {
                 explorer = {
