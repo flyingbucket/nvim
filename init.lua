@@ -1,4 +1,5 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
+vim.g.maplocalleader = "," -- 设置 localleader
 require("config.lazy")
 require("config.options")
 require("config.floatterm")
