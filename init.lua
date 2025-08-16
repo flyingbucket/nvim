@@ -2,7 +2,6 @@
 require("config.lazy")
 require("config.options")
 require("config.floatterm")
-
 -- -- interact with browser
 -- -- Define the OpenMarkdownPreview function in Vim script
 -- vim.cmd([[

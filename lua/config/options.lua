@@ -10,4 +10,6 @@ opt.relativenumber = true
 opt.tabstop = 4
 
 --clipboard
-opt.clipboard:append("unnamedplus")
+-- opt.clipboard:append("unnamedplus")
+-- 设置 clipboard
+opt.clipboard = "unnamedplus,unnamed"
