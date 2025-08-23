@@ -20,3 +20,4 @@ opt.directory = "~/.cache/nvim/swap//" -- 把 swap 放本地
 opt.backupdir = "~/.cache/nvim/backup//" -- 把备份放本地（虽然后面 backup=false）
 opt.undofile = true
 opt.undodir = "~/.cache/nvim/undo//" -- 把持久化 undo 放本地
+opt.clipboard = "unnamedplus"
