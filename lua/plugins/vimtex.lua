@@ -19,6 +19,7 @@ return {
                 "-synctex=1",
                 "-file-line-error",
                 "-interaction=nonstopmode",
+                "-bibtex",
                 -- "-halt-on-error", -- 关键：遇到致命错误直接失败，不卡在 '?'
             },
         }
