@@ -11,12 +11,13 @@ return {
         local cfg = metals.bare_config()
 
         cfg.settings = {
-            showImplicitArguments = true,
+            showImplicitArguments = false, -- 关掉 (materializeClassTag)
+            showImplicitConversionsAndClasses = false,
+            showInferredType = true, -- 值类型提示仍然显示（推荐）
             excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
         }
         cfg.init_options = { statusBarProvider = "off" }
-
-        -- ✅ 用 LazyVim 的能力获取函数，自动兼容 blink 或 cmp
+        -- 用 LazyVim 的能力获取函数，自动兼容 blink 或 cmp
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         local ok_lv, lv = pcall(require, "lazyvim.util")
         if ok_lv and lv.lsp and lv.lsp.get_capabilities then
