@@ -1,11 +1,18 @@
 return {
-    -- gruvbox setup
+    {
+        "LazyVim/LazyVim",
+        opts = {
+            colorscheme = "td_metal_archspire",
+        },
+    },
+
     {
         "ellisonleao/gruvbox.nvim",
-        priority = 100, -- 确保它在其他插件之前加载
+        lazy = true,
+        priority = 100,
         config = function()
             require("gruvbox").setup({
-                terminal_colors = true, -- 添加 Neovim 终端颜色
+                terminal_colors = true,
                 undercurl = true,
                 underline = true,
                 bold = true,
@@ -21,33 +28,25 @@ return {
                 invert_signs = false,
                 invert_tabline = false,
                 invert_intend_guides = false,
-                inverse = true, -- 反转搜索、高亮、diff、状态栏和错误的背景色
-                contrast = "", -- 可选 "hard"、"soft" 或 ""
+                inverse = true,
+                contrast = "",
                 palette_overrides = {},
                 overrides = {},
                 dim_inactive = false,
-                transparent_mode = true, -- 透明背景
+                transparent_mode = true,
             })
-
-            -- 设置主题
-            -- vim.cmd("colorscheme gruvbox")
         end,
     },
-    -- Install without configuration
-    -- { 'projekt0n/github-nvim-theme', name = 'github-theme' }
 
-    -- Or with configuration
     {
         "projekt0n/github-nvim-theme",
         name = "github-theme",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        lazy = true,
+        priority = 1000,
         config = function()
             require("github-theme").setup({
                 -- ...
             })
-
-            vim.cmd("colorscheme github_dark_colorblind")
         end,
     },
 }
