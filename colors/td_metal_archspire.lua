@@ -5,7 +5,8 @@ local M = {}
 
 local c = {
     fg = "#d4d1c8",
-    bg = "#000000",
+    -- bg = "#000000",
+    bg = "#070b12",
     cursor = "#9ad4a8",
     sel_bg = "#2a2a2a",
     sel_fg = "#c1c1c1",
