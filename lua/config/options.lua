@@ -21,3 +21,19 @@ opt.directory = os.getenv("HOME") .. "/.cache/nvim/swap//"
 opt.backupdir = os.getenv("HOME") .. "/.cache/nvim/backup//"
 opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undo//"
 opt.clipboard = "unnamedplus"
+
+-- Distrobox Clipboard Fix: only enabled when in dostrobox containers
+if os.getenv("DISTROBOX_ENTER_PATH") ~= nil then
+    vim.g.clipboard = {
+        name = "distrobox",
+        copy = {
+            ["+"] = { "distrobox-host-exec", "wl-copy" },
+            ["*"] = { "distrobox-host-exec", "wl-copy" },
+        },
+        paste = {
+            ["+"] = { "distrobox-host-exec", "wl-paste", "--no-newline" },
+            ["*"] = { "distrobox-host-exec", "wl-paste", "--no-newline" },
+        },
+        cache_enabled = 0,
+    }
+end
