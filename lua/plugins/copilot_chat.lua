@@ -27,7 +27,7 @@ return {
         },
         keys = {
             -- 快速打开聊天窗口
-            { "<leader>co", "<cmd>CopilotChatOpen<cr>", desc = "CopilotChat - Open" },
+            { "<leader>cb", "<cmd>CopilotChatOpen<cr>", desc = "CopilotChat - Open" },
             { "<leader>cq", "<cmd>CopilotChatClose<cr>", desc = "CopilotChat - Close" },
             { "<leader>ct", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
             { "<leader>cr", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Reset" },
