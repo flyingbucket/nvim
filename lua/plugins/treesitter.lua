@@ -1,35 +1,3 @@
--- return {
---     {
---         "nvim-treesitter/nvim-treesitter",
---         dependencies = {
---             "nvim-treesitter/nvim-treesitter-textobjects",
---         },
---         opts = function(_, opts)
---             opts.textobjects = opts.textobjects or {}
---
---             opts.textobjects.select = {
---                 enable = true,
---                 lookahead = true,
---                 keymaps = {
---                     ["ac"] = "@cell.outer",
---                     ["ic"] = "@cell.inner",
---                 },
---             }
---
---             opts.textobjects.move = {
---                 enable = true,
---                 goto_next_start = {
---                     ["]c"] = "@cell.outer",
---                 },
---                 goto_previous_start = {
---                     ["[c"] = "@cell.outer",
---                 },
---             }
---         end,
---     },
--- }
---
--- ~/.config/nvim/lua/plugins/treesitter.lua
 return {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -45,8 +13,8 @@ return {
                 "scala",
                 "c",
                 "rust",
-                "cuda", -- nvim-treesitter 支持的 CUDA 解析器
-                -- 常用基础语法（建议一起装，提升体验）
+                "cuda",
+                "r",
                 "bash",
                 "lua",
                 "json",
