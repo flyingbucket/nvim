@@ -4,10 +4,9 @@ return {
     lazy = false,
     init = function()
         -- ===== 1) 预览器 =====
-        -- 你也可以改成 zathura/okular/sioyek，下面保留你原来的“系统默认”
         vim.g.vimtex_view_method = "general"
         vim.g.vimtex_view_general_viewer = "xdg-open"
-
+        vim.g.vimtex_compiler_output_directory = "build"
         -- ===== 2) 编译器：latexmk + xelatex（强制）=====
         vim.g.vimtex_compiler_method = "latexmk"
         vim.g.vimtex_compiler_latexmk = {
@@ -20,8 +19,9 @@ return {
                 "-file-line-error",
                 "-interaction=nonstopmode",
                 "-bibtex",
-                -- "-halt-on-error", -- 关键：遇到致命错误直接失败，不卡在 '?'
+                "-outdir=build",
             },
+            output_directory = "build",
         }
         -- 双保险：无论何种目标（_）都映射到 -xelatex
         vim.g.vimtex_compiler_latexmk_engines = { _ = "-xelatex" }
