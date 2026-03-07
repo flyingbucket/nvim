@@ -10,7 +10,6 @@ return {
             vim.g.copilot_filetypes = {
                 ["*"] = true,
                 gitcommit = false,
-                markdown = false,
                 help = false,
             }
         end,
