@@ -9,21 +9,22 @@ return {
             -- 1) 追加需要安装的 parser（不覆盖原有）
             opts.ensure_installed = opts.ensure_installed or {}
             vim.list_extend(opts.ensure_installed, {
-                "python",
-                "scala",
-                "c",
-                "rust",
-                "cuda",
-                "r",
                 "bash",
-                "lua",
+                "c",
+                "cuda",
                 "json",
-                "toml",
-                "yaml",
+                "lua",
                 "markdown",
                 "markdown_inline",
-                "regex",
+                "python",
                 "query",
+                "r",
+                "rnoweb",
+                "regex",
+                "rust",
+                "scala",
+                "toml",
+                "yaml",
             })
 
             -- 2) 高亮 / 缩进
