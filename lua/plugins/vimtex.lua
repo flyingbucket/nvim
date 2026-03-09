@@ -70,6 +70,6 @@ return {
         })
 
         -- 本地 leader
-        vim.g.maplocalleader = ","
+        -- vim.g.maplocalleader = ","
     end,
 }
