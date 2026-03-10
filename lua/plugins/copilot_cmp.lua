@@ -24,6 +24,15 @@ return {
             vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
             -- 取消
             vim.keymap.set("i", "<C-]>", "<Plug>(copilot-dismiss)")
+            vim.keymap.set("n", "<leader>tc", function()
+                if vim.g.copilot_enabled then
+                    vim.cmd("Copilot disable")
+                    print("Copilot Disabled")
+                else
+                    vim.cmd("Copilot enable")
+                    print("Copilot Enabled")
+                end
+            end, { desc = "Toggle Copilot" })
         end,
     },
 }
