@@ -11,6 +11,7 @@ return {
         -- Create a table with the options to be passed to setup()
         ---@type RConfigUserOpts
         local opts = {
+            R_app = "radian",
             hook = {
                 on_filetype = function()
                     vim.api.nvim_buf_set_keymap(0, "n", "<Enter>", "<Plug>RDSendLine", {})
