@@ -1,37 +1,41 @@
 -- td_metal_archspire.nvim
--- A cool, technical-death-metal inspired scheme based on your WezTerm palette.
+-- A tech-death music inspired scheme
+-- capturing the sharp, precise, and aggressive essence of Archspire.
+-- It pairs industrial cold tones with piercing
+-- "Electric Blood" accents for high-velocity technical clarity.
 
 local M = {}
 
 local c = {
-    fg = "#d4d1c8",
-    -- bg = "#000000",
-    bg = "#070b12",
-    cursor = "#9ad4a8",
-    sel_bg = "#2a2a2a",
-    sel_fg = "#c1c1c1",
+    -- Core UI
+    fg = "#d4d1c8", -- soft white
+    bg = "#070b12", -- dark abyss
+    cursor = "#9ad4a8", -- mint frost
+    sel_bg = "#263345", -- steel blue
 
-    -- ansi 0-7
-    black = "#000000",
-    a1 = "#63b0b0", -- cyan-gray (slot 1)
-    a2 = "#c3cf88", -- muted lime (slot 2)
-    a3 = "#d7e27a", -- lemon (slot 3)
-    a4 = "#6f9bc9", -- blue-gray (slot 4)
-    a5 = "#b4a6d6", -- violet (slot 5)
-    a6 = "#8fd0d0", -- light cyan (slot 6)
-    white = "#d6d6d6",
+    -- Syntax specifics
+    comment = "#5c6a72", -- iron gray
 
-    -- brights 8-15
-    bblack = "#555555",
-    b1 = "#79c6c6",
-    b2 = "#9ad4a8",
-    b3 = "#e5f08f",
-    b4 = "#90b4e6",
-    b5 = "#cbbaf2",
-    b6 = "#b2e6e6",
-    bwhite = "#f2f2f2",
+    -- ANSI 0-7
+    black = "#000000", -- black
+    a1 = "#63b0b0", -- cyan gray
+    a2 = "#c3cf88", -- muted lime
+    a3 = "#d7e27a", -- lemon yellow
+    a4 = "#9fb4fc", -- titanium blue
+    a5 = "#e06c75", -- electric blood red
+    a6 = "#8fd0d0", -- light cyan
+    white = "#d6d6d6", -- silver gray
+
+    -- Brights 8-15
+    bblack = "#555555", -- medium gray
+    b1 = "#79c6c6", -- bright cyan
+    b2 = "#9ad4a8", -- bright mint
+    b3 = "#e5f08f", -- bright yellow
+    b4 = "#c2d1ff", -- laser blue
+    b5 = "#ff8e95", -- fresh blood red
+    b6 = "#b2e6e6", -- electric cyan
+    bwhite = "#f2f2f2", -- bright white
 }
-
 local function hi(group, opts)
     vim.api.nvim_set_hl(0, group, opts)
 end
@@ -45,7 +49,7 @@ function M.setup()
     vim.o.termguicolors = true
     vim.g.colors_name = "td_metal_archspire"
 
-    -- Make :terminal and any TUI-based highlight obey your palette
+    -- Make :terminal and any TUI-based highlight obey this palette
     vim.g.terminal_color_0 = c.black
     vim.g.terminal_color_1 = c.a1
     vim.g.terminal_color_2 = c.a2
@@ -71,7 +75,7 @@ function M.setup()
     hi("CursorLine", { bg = "#101010" })
     hi("CursorColumn", { bg = "#101010" })
     hi("ColorColumn", { bg = "#101010" })
-    hi("Visual", { fg = c.sel_fg, bg = c.sel_bg })
+    hi("Visual", { bg = c.sel_bg, bold = true })
     hi("Search", { fg = c.bg, bg = c.a3 })
     hi("IncSearch", { fg = c.bg, bg = c.b3 })
     hi("LineNr", { fg = c.bblack })
@@ -85,14 +89,14 @@ function M.setup()
     hi("PmenuSbar", { bg = "#0b0b0b" })
     hi("PmenuThumb", { bg = c.bblack })
 
-    -- Diagnostics (cool, not bloody)
-    hi("DiagnosticError", { fg = c.a1 }) -- keep “error” cold
+    -- Diagnostics
+    hi("DiagnosticError", { fg = c.a5 })
     hi("DiagnosticWarn", { fg = c.a3 })
     hi("DiagnosticInfo", { fg = c.a4 })
     hi("DiagnosticHint", { fg = c.a6 })
 
     -- Syntax (classic groups; treesitter/LSP also map into these often)
-    hi("Comment", { fg = c.bblack, italic = true })
+    hi("Comment", { fg = c.comment, italic = true })
     hi("String", { fg = c.a2 })
     hi("Character", { fg = c.a2 })
     hi("Number", { fg = c.a3 })
@@ -108,13 +112,12 @@ function M.setup()
     hi("PreProc", { fg = c.a6 })
     hi("Special", { fg = c.a1 })
     hi("Todo", { fg = c.bg, bg = c.a3, bold = true })
-
-    -- Common plugin groups (nice-to-have)
+    -- Common plugin groups
     hi("GitSignsAdd", { fg = c.a2 })
     hi("GitSignsChange", { fg = c.a3 })
     hi("GitSignsDelete", { fg = c.a1 })
 
-    -- Telescope (if you use it)
+    -- Telescope
     hi("TelescopeBorder", { fg = c.bblack, bg = c.bg })
     hi("TelescopeSelection", { bg = "#101010" })
     hi("TelescopeMatching", { fg = c.a3, bold = true })
