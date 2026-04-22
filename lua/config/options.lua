@@ -10,7 +10,7 @@ opt.relativenumber = true
 opt.tabstop = 4
 
 --clipboard
-opt.clipboard = "unnamedplus,unnamed"
+opt.clipboard = "unnamedplus"
 opt.backup = false -- 不保留永久备份文件（xxx~）
 opt.writebackup = false -- 写入时也不做临时备份
 opt.backupcopy = "yes" -- 直接“就地覆盖”旧文件（不走 rename）
@@ -20,6 +20,13 @@ opt.backupdir = os.getenv("HOME") .. "/.cache/nvim/backup//"
 opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undo//"
 opt.clipboard = "unnamedplus"
 
+if vim.g.neovide then
+    vim.opt.guifont = "JetBrainsMono Nerd Font:h11"
+
+    vim.schedule(function()
+        vim.g.neovide_scale_factor = 0.8
+    end)
+end
 -- Distrobox Clipboard Fix: only enabled when in dostrobox containers
 if os.getenv("DISTROBOX_ENTER_PATH") ~= nil then
     vim.g.clipboard = {
