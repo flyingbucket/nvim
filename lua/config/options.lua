@@ -10,8 +10,6 @@ opt.relativenumber = true
 opt.tabstop = 4
 
 --clipboard
--- opt.clipboard:append("unnamedplus")
--- 设置 clipboard
 opt.clipboard = "unnamedplus,unnamed"
 opt.backup = false -- 不保留永久备份文件（xxx~）
 opt.writebackup = false -- 写入时也不做临时备份
@@ -36,4 +34,10 @@ if os.getenv("DISTROBOX_ENTER_PATH") ~= nil then
         },
         cache_enabled = 0,
     }
+end
+
+-- neovide font config
+if vim.g.neovide then
+    vim.o.guifont = "JetBrains Mono:h12"
+    -- vim.o.guifont = "JetBrains Mono,Symbols Nerd Font Mono:h12"
 end
