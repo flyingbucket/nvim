@@ -39,5 +39,6 @@ end
 -- neovide font config
 if vim.g.neovide then
     vim.o.guifont = "JetBrains Mono:h12"
-    -- vim.o.guifont = "JetBrains Mono,Symbols Nerd Font Mono:h12"
+    vim.g.neovide_scroll_animation_length = 0.3
+    vim.g.neovide_cursor_animation_length = 0.15
 end
