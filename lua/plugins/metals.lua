@@ -4,20 +4,20 @@ return {
     dependencies = {
         { "j-hui/fidget.nvim", opts = {} },
         { "mfussenegger/nvim-dap" },
-        -- ⚠ 不要加 "hrsh7th/cmp-nvim-lsp"
     },
     opts = function()
         local metals = require("metals")
         local cfg = metals.bare_config()
 
         cfg.settings = {
-            showImplicitArguments = false, -- 关掉 (materializeClassTag)
+            showImplicitArguments = false,
             showImplicitConversionsAndClasses = false,
-            showInferredType = true, -- 值类型提示仍然显示（推荐）
+            showInferredType = true,
             excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
         }
         cfg.init_options = { statusBarProvider = "off" }
-        -- 用 LazyVim 的能力获取函数，自动兼容 blink 或 cmp
+
+        -- 获取 capabilities（兼容 blink.cmp 或 nvim-cmp）
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         local ok_lv, lv = pcall(require, "lazyvim.util")
         if ok_lv and lv.lsp and lv.lsp.get_capabilities then
@@ -25,10 +25,20 @@ return {
         end
         cfg.capabilities = capabilities
 
-        cfg.on_attach = function()
-            require("metals").setup_dap()
-            -- 你的键位映射...
+        -- 修正 on_attach 签名，并正确挂载 DAP
+        cfg.on_attach = function(client, bufnr)
+            metals.setup_dap()
+
+            -- 针对 Scala 的特化快捷键推荐（通过 Metals 命令启动调试/运行）
+            local map = vim.keymap.set
+            map("n", "<leader>cM", function()
+                require("telescope").extensions.metals.commands()
+            end, { buffer = bufnr, desc = "Metals Commands" })
+            map("n", "<leader>dr", function()
+                require("metals").run_specific_target()
+            end, { buffer = bufnr, desc = "Metals Run Target" })
         end
+
         return cfg
     end,
     config = function(_, cfg)
