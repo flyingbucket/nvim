@@ -3,6 +3,7 @@ return {
     opts = {
         servers = {
             clangd = {
+                mason = false,
                 cmd = {
                     "clangd",
                     "--background-index",
